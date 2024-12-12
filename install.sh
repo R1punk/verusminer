@@ -1,9 +1,9 @@
+read -p $'\e[0m\e[1;96mMasukan Nama Worker : ' wor;
+read -p $'\e[0m\e[1;96mMasukan Wallet : ' wal;
 apt install libjansson build-essential clang binutils -y
 cp /data/data/com.termux/files/usr/include/linux/sysctl.h /data/data/com.termux/files/usr/include/sys
-cd .. && git clone https://github.com/Darktron/ccminer.git && cd ccminer && chmod +x build.sh configure.sh autogen.sh start.sh && CXX=clang++ CC=clang ./build.sh 
-#buat config
-read -p $"\e[0m\e[1;96m Masukan Nama Worker : " wor;
-read -p $"\e[0m\e[1;96m Masukan Wallet : " wal;
+cd .. && git clone https://github.com/Darktron/ccminer.git && cd ccminer && chmod +x build.sh configure.sh autogen.sh start.sh && CXX=clang++ CC=clang ./build.sh && rm config.json
+
 echo -e """
 {
     "pools":
@@ -47,4 +47,5 @@ echo -e """
     "retry-pause": 10,
     "api-allow": "192.168.0.0/16",
     "api-bind": "0.0.0.0:4068"
-}""" >> ccminer/config.json
+}""" >> config.json
+mv config.json /data/data/com.termux/files/home/ccminer/
