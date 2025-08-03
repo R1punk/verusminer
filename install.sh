@@ -1,7 +1,7 @@
 # Update & install dependencies
-yes | pkg update -y
-yes | pkg upgrade -y
-yes | pkg install libjansson build-essential clang binutils git -y
+apt update -y
+apt upgrade -y
+apt install libjansson build-essential clang binutils git -y
 
 # Hapus folder ccminer lama jika ada
 if [ -d "$HOME/ccminer" ]; then
