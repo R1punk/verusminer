@@ -1,7 +1,7 @@
 # Update & install dependencies
 yes | pkg update -y
 yes | pkg upgrade -y
-yes | pkg install git libjansson wget nano termux-api clang make cmake -y
+yes | pkg install libjansson build-essential clang binutils git -y
 
 # Hapus folder ccminer lama jika ada
 if [ -d "$HOME/ccminer" ]; then
@@ -11,6 +11,7 @@ fi
 
 # Clone repo ccminer
 echo "[*] Meng-clone repo ccminer..."
+cp /data/data/com.termux/files/usr/include/linux/sysctl.h /data/data/com.termux/files/usr/include/sys
 git clone https://github.com/Darktron/ccminer ~/ccminer
 
 cd ~/ccminer
